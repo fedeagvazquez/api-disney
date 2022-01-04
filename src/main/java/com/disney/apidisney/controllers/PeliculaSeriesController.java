@@ -1,7 +1,10 @@
 package com.disney.apidisney.controllers;
 
+import com.disney.apidisney.entities.dtos.requests.PeliculaSerieRequest;
+import com.disney.apidisney.entities.dtos.requests.PersonajeRequest;
 import com.disney.apidisney.entities.dtos.responses.PeliculaSerieResponse;
 import com.disney.apidisney.entities.dtos.responses.PeliculasSeriesResponse;
+import com.disney.apidisney.entities.dtos.responses.PersonajeResponse;
 import com.disney.apidisney.entities.dtos.responses.PersonajesResponse;
 import com.disney.apidisney.entities.model.PeliculaSerie;
 import com.disney.apidisney.entities.model.Personaje;
@@ -13,9 +16,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Validated
 @RestController
@@ -39,6 +40,21 @@ public class PeliculaSeriesController {
             .collect(Collectors.toList()),
         HttpStatus.OK);
 
+  }
+
+  @PostMapping
+  @Operation(
+          summary = "Crear una Pelicula o Serie",
+          description = "Este servicio permite la creacion de una Pelicula o Serie.")
+  public ResponseEntity<PeliculaSerieResponse> createPeliculaSerie(
+          @RequestBody
+                  PeliculaSerieRequest peliculaSerieRequest) {
+
+    return new ResponseEntity<>(
+            peliculaSeriesService.createPeliculaSerie(
+                            peliculaSerieRequest.construct())
+                    .completePeliculaSerieResponse(),
+            HttpStatus.OK);
   }
 
 

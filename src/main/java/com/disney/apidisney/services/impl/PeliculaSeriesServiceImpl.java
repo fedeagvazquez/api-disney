@@ -19,4 +19,10 @@ public class PeliculaSeriesServiceImpl implements PeliculaSeriesService {
   public List<PeliculaSerie> getAllPeliculaSeries() {
     return peliculaSerieRepository.findAll();
   }
+
+  @Override
+  public PeliculaSerie createPeliculaSerie(
+          PeliculaSerie peliculaSerie) {
+    return peliculaSerieRepository.save(peliculaSerie);
+  }
 }

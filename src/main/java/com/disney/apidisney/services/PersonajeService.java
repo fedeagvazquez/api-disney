@@ -2,9 +2,11 @@ package com.disney.apidisney.services;
 
 import com.disney.apidisney.entities.dtos.requests.PersonajeRequest;
 import com.disney.apidisney.entities.model.Personaje;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-
+@Service
 public interface PersonajeService {
 
   Personaje createPersonaje(
