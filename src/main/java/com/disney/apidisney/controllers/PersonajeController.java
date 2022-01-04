@@ -110,45 +110,45 @@ public class PersonajeController {
   }
 
 
-  @GetMapping
-  @Operation(
-      summary = "Obtener todos los Lotes con filtros por un StateEnum.",
-      description = "Este servicio permite obtener todos los Lotes filtrandolos"
-          + " por StateEnum, de manera paginada.")
-  public ResponseEntity<PersonajeResponse> getPersonajesConFiltro(
-      @RequestParam(required = false)
-          String nombre,
-      @RequestParam(defaultValue = "0")
-          int edad,
-      @RequestParam(defaultValue = "10")
-          double peso) {
-
-    Specification<Personaje> specification =
-        Objects.requireNonNull(
-            where(new LoteWithState(state))
-                .and(new OwnLotes(
-                    loggedUserManager,
-                    authentication)));
-
-    Page<Lote> pagedLotes = loteService.findAllLotes(
-        specification,
-        filterManager.getPageable(
-            SortEnum.DESC,
-            pageNumber,
-            pageSize));
-
-    return new ResponseEntity<>(
-        new PagedResponse(
-            pagedLotes.getNumber(),
-            pagedLotes.getNumberOfElements(),
-            pagedLotes.getTotalPages(),
-            pagedLotes.getTotalElements(),
-            pagedLotes.stream()
-                .map(
-                    Lote::response)
-                .collect(Collectors.toList())),
-        HttpStatus.OK);
-
-  }
+//  @GetMapping
+//  @Operation(
+//      summary = "Obtener todos los Lotes con filtros por un StateEnum.",
+//      description = "Este servicio permite obtener todos los Lotes filtrandolos"
+//          + " por StateEnum, de manera paginada.")
+//  public ResponseEntity<PersonajeResponse> getPersonajesConFiltro(
+//      @RequestParam(required = false)
+//          String nombre,
+//      @RequestParam(defaultValue = "0")
+//          int edad,
+//      @RequestParam(defaultValue = "10")
+//          double peso) {
+//
+//    Specification<Personaje> specification =
+//        Objects.requireNonNull(
+//            where(new LoteWithState(state))
+//                .and(new OwnLotes(
+//                    loggedUserManager,
+//                    authentication)));
+//
+//    Page<Lote> pagedLotes = loteService.findAllLotes(
+//        specification,
+//        filterManager.getPageable(
+//            SortEnum.DESC,
+//            pageNumber,
+//            pageSize));
+//
+//    return new ResponseEntity<>(
+//        new PagedResponse(
+//            pagedLotes.getNumber(),
+//            pagedLotes.getNumberOfElements(),
+//            pagedLotes.getTotalPages(),
+//            pagedLotes.getTotalElements(),
+//            pagedLotes.stream()
+//                .map(
+//                    Lote::response)
+//                .collect(Collectors.toList())),
+//        HttpStatus.OK);
+//
+//  }
 
 }
