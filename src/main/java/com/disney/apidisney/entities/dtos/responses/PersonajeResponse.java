@@ -2,7 +2,6 @@ package com.disney.apidisney.entities.dtos.responses;
 
 import com.disney.apidisney.entities.model.PeliculaSerie;
 import com.disney.apidisney.entities.model.Personaje;
-import javax.persistence.OneToMany;
 import lombok.Data;
 
 @Data

@@ -16,11 +16,11 @@ public class DisneyErrorMessage {
 
     public DisneyErrorMessage(
         HttpStatus httpStatus,
-        DisneyErrorEnum conirradErrorEnum,
+        DisneyErrorEnum disneyErrorEnum,
         String internalErrorMessage) {
 
       this.httpStatus = httpStatus;
-      this.disneyErrorEnum = conirradErrorEnum;
+      this.disneyErrorEnum = disneyErrorEnum;
       this.internalErrorMessage = internalErrorMessage;
 
     }

@@ -1,6 +1,5 @@
 package com.disney.apidisney.controllers;
 
-import static org.springframework.data.jpa.domain.Specification.where;
 
 import com.disney.apidisney.entities.dtos.requests.PersonajeRequest;
 import com.disney.apidisney.entities.dtos.responses.PersonajeResponse;

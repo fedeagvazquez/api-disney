@@ -1,10 +1,8 @@
 package com.disney.apidisney.entities.dtos.requests;
 
 import com.disney.apidisney.entities.model.PeliculaSerie;
-import com.disney.apidisney.entities.model.Personaje;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import lombok.Data;
 
 @Data

@@ -1,13 +1,9 @@
 package com.disney.apidisney.controllers;
 
 import com.disney.apidisney.entities.dtos.requests.PeliculaSerieRequest;
-import com.disney.apidisney.entities.dtos.requests.PersonajeRequest;
 import com.disney.apidisney.entities.dtos.responses.PeliculaSerieResponse;
 import com.disney.apidisney.entities.dtos.responses.PeliculasSeriesResponse;
-import com.disney.apidisney.entities.dtos.responses.PersonajeResponse;
-import com.disney.apidisney.entities.dtos.responses.PersonajesResponse;
 import com.disney.apidisney.entities.model.PeliculaSerie;
-import com.disney.apidisney.entities.model.Personaje;
 import com.disney.apidisney.services.PeliculaSeriesService;
 import io.swagger.v3.oas.annotations.Operation;
 import java.util.List;
